@@ -28,3 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: mkdir datas
+    - run: cp /home/ubuntu/Code/frontend/build.txt /home/ubuntu/Code/action-runner/_work/express-app/express-app/datas
