@@ -27,4 +27,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: cp /home/ubuntu/Code/frontend/build.txt /home/ubuntu/Code/action-runner/_work/express-app/express-app
+    - run: cp /home/ubuntu/Code/frontend /home/ubuntu/Code/action-runner/_work/express-app/express-app
