@@ -16,7 +16,7 @@
 
 <script src="socket.io/socket.io.js"></script>
 <script>
-  const socket = io.connect('http://localhost:3001', {reconnect: true});
+  const socket = io.connect();
   function sendMsg(){
     debugger;
     var val = document.getElementById("Notice_message").value;
