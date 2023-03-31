@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 app.use(cors());
 
 
-app.get('/chat', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(__dirname+"/public_1/board.html")
   })
 // app.listen(3002, () => {
@@ -26,11 +26,6 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
-
-//   socket.on("join_room", (data) => {
-//     socket.join(data);
-//     console.log(`User with ID: ${socket.id} joined room: ${data}`);
-//   });
 
   socket.on("get_message", (from,data) => {
     console.log(from,data)
