@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation</title>
+</head>
+<body>
+    <div id="notice_board">
+
+    </div>
+    <textarea name="Notice_message" id="Notice_message" cols="30" rows="10"></textarea>
+    <button id="submit_button">Submit</button>
+</body>
+
+<script src="socket.io/socket.io.js"></script>
+<script>
+  const socket = io.connect('http://localhost:3001', {reconnect: true});
+  function sendMsg(){
+    debugger;
+    var val = document.getElementById("Notice_message").value;
+    socket.emit('get_message', 'me', val);
+  }
+
+  document.getElementById("submit_button").addEventListener("click", ()=>sendMsg());
+  
+
+  socket.on("receive_message", (from,data) => {
+    console.log(from,data)
+    document.getElementById("notice_board").append(data);
+  });
+</script>
+</html>
